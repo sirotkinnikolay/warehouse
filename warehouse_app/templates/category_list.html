@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>КАТЕГОРИИ ТОВАРОВ</title>
+</head>
+<body>
+        <form ALIGN='right' action="/">
+            <button style="height:20px;width:100px" type="submit">ГЛАВНАЯ </button>
+        </form>
+
+
+{% if request.user.is_authenticated %}
+        <form ALIGN='right' action="/new_category">
+            <button style="height:20px;width:100px" type="submit">ДОБАВИТЬ </button>
+        </form>
+{% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% for n in object_list %}
+
+        <form ALIGN='center' action="/category_product/{{n.pk}}">
+            <button style="height:50px;width:300px"  type="submit">{{n.group}}</button>
+        </form>
+    {% endfor %}
+</body>
+</html>

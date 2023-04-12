@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ДОБАВИТЬ ТОВАР</title>
+</head>
+<body>
+        <form ALIGN='right' action="/">
+            <button style="height:20px;width:100px" type="submit">ГЛАВНАЯ </button>
+        </form>
+        <form ALIGN='right' action="/category">
+            <button style="height:20px;width:100px" type="submit">КАТЕГОРИИ </button>
+        </form>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+    <button type="submit" >ДОБАВИТЬ</button>
+</form>
+</body>
+</html>

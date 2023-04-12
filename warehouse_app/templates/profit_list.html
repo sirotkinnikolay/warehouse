@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ПРИБЫЛЬ</title>
+</head>
+<body>
+        <form ALIGN='right' action="/">
+            <button style="height:20px;width:100px" type="submit">ГЛАВНАЯ </button>
+        </form>
+{% for n in object_list %}
+    <table cellspacing="2" cellpadding="10" bgcolor="black">
+            <tr bgcolor="white">
+                <td width="300">МЕСЯЦ ОТЧЕТНОСТИ.</td>
+                <td width="300">{{n.date}}</td>
+                <td width="100">ПРИБЫЛЬ</td>
+                <td width="100">{{n.profit}}</td>
+            </tr>
+        </table>
+
+{% endfor %}
+
+</body>
+</html>

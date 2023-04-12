@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ГЛАВНАЯ СТРАНИЦА</title>
+
+<h2 style="text-align:center;">МАГАЗИН</h2>
+
+{% if request.user.is_authenticated %}
+    {% if user.is_superuser %}
+    </head>
+    <form ALIGN='center' action="logout/">
+        <button style="height:20px;width:100px" type="submit">ВЫЙТИ</button>
+    </form>
+    <body>
+    <h3 style="text-align:center;">ЗДРАВСТВУЙТЕ, АДМИНИСТРАТОР: {{request.user.username}}</h3>
+
+    <form ALIGN='center' action="/new_product">
+      <button style="height:50px;width:200px" type="submit">ДОБАВИТЬ ТОВАР</button>
+    </form>
+
+    <form ALIGN='center' action="/category">
+      <button style="height:50px;width:200px" type="submit">КАТЕГОРИИ ТОВАРОВ</button>
+    </form>
+
+    <form ALIGN='center' action="/profit">
+      <button style="height:50px;width:200px" type="submit">ПОСМОТРЕТЬ ОТЧЕТ</button>
+    </form>
+
+    <form ALIGN='center' action="/statistics">
+      <button style="height:50px;width:200px" type="submit">ПОСМОТРЕТЬ СТАТИСТИКУ ПРОДАЖ</button>
+    </form>
+    {% endif %}
+
+{% else %}
+    <form ALIGN='center' action="login/">
+      <button  style="height:20px;width:100px" type="submit">ВОЙТИ</button>
+    </form>
+    <h3 style="text-align:center;">ЗДРАВСТВУЙТЕ</h3>
+
+    <form ALIGN='center' action="/category">
+      <button style="height:50px;width:200px" type="submit">КАТЕГОРИИ ТОВАРОВ</button>
+    </form>
+{% endif %}
+
+</body>
+</html>

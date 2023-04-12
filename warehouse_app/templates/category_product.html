@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+        <title>ТОВАРЫ</title>
+    <style>
+    .field{font-weight:bold;}
+    .error{color:red;}
+    </style>
+</head>
+<body>
+
+        <form ALIGN='right' action="/">
+            <button style="height:20px;width:100px" type="submit">ГЛАВНАЯ </button>
+        </form>
+        <form ALIGN='right' action="/category">
+            <button style="height:20px;width:100px" type="submit">КАТЕГОРИИ </button>
+        </form>
+            <form ALIGN='right' action="">
+            <button style="height:20px;width:100px" type="submit">СПИСОК</button>
+        </form>
+
+----------------------------------------------------------------------
+        <form method="GET" action="">
+            <input type="text" name="q" placeholder="ЧТО ИСКАТЬ">
+            <input class="button" type="submit" value="НАЙТИ">
+        </form>
+-----------------------------------------------------------------------
+
+    {% for n in object_list %}
+        <table cellspacing="2" cellpadding="2" bgcolor="black">
+            <tr bgcolor="yellow" >
+                <td width="300">ТОВАР:</td>
+                <td width="300">{{n.products}}</td>
+            </tr>
+            <tr bgcolor="white">
+                <td width="300">АРТИКУЛ:</td>
+                <td width="300">{{n.article}}</td>
+            </tr>
+            <tr bgcolor="white">
+                <td width="300">ДАТА ДОБАВЛЕНИЯ:</td>
+                <td width="300">{{n.create_at}}</td>
+            </tr>
+        </table>
+
+        <table cellspacing="2" cellpadding="2" bgcolor="black">
+            <tr bgcolor="white">
+                <td width="300">МОСКВА: ШТ.</td>
+                <td width="300">{{n.mos_count}}</td>
+                {% if request.user.is_authenticated %}
+                <td width="100"><form ALIGN='right' action="/category_product/{{n.group_product_id}}/{{n.pk}}/moscow">
+                        <button style="height:25px;width:150px" type="submit">РЕДАКТИРОВАТЬ </button>
+                {% endif %}
+                </form>
+                </td>
+            </tr>
+            <tr bgcolor="white">
+                <td width="300">САНКТ-ПЕТЕРБУРГ: ШТ.</td>
+                <td width="300">{{n.spd_count}}</td>
+                {% if request.user.is_authenticated %}
+                <td width="100"><form ALIGN='right' action="/category_product/{{n.group_product_id}}/{{n.pk}}/spb">
+                        <button style="height:25px;width:150px" type="submit">РЕДАКТИРОВАТЬ </button>
+                {% endif %}
+                </form>
+                </td>
+            </tr>
+        </table>
+                <form action="/category_product/{{n.group_product_id}}/{{n.pk}}">
+                        <button style="height:20px;width:150px" type="submit">СТРАНИЦА ТОВАРА</button>
+                </form>
+                {% if request.user.is_authenticated %}
+                <form action="/category_product/{{n.group_product_id}}/{{n.pk}}/edit">
+                        <button style="height:20px;width:150px" type="submit">РЕДАКТИРОВАТЬ</button>
+                </form>
+
+                <form action="/category_product/{{n.group_product_id}}/{{n.pk}}/delete">
+                        <button style="height:20px;width:150px" type="submit">УДАЛИТЬ ТОВАР</button>
+                </form>
+                {% endif %}
+
+    <br>
+    <br>
+    {% endfor %}
+</body>
+</html>

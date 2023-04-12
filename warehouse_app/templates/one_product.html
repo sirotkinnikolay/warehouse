@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>СТРАНИЦА ТОВАРА</title>
+</head>
+<body>
+        <form ALIGN='right' action="/category_product/{{productmodel.group_product_id}}">
+            <button style="height:20px;width:100px" type="submit">СПИСОК ТОВАРОВ</button>
+        </form>
+        <form ALIGN='right' action="/">
+            <button style="height:20px;width:100px" type="submit">ГЛАВНАЯ </button>
+        </form>
+        <form ALIGN='right' action="/category">
+            <button style="height:20px;width:100px" type="submit">КАТЕГОРИИ </button>
+        </form>
+
+        <table cellspacing="2" cellpadding="10" bgcolor="black">
+            <tr bgcolor="yellow">
+                <td width="300">ТОВАР:</td>
+                <td width="300">{{productmodel.products}}</td>
+            </tr>
+            <tr bgcolor="white">
+                <td width="300">АРТИКУЛ:</td>
+                <td width="300">{{productmodel.article}}</td>
+            </tr>
+            {% if request.user.is_authenticated %}
+            <tr bgcolor="white">
+                <td width="100">ЦЕНА ЗАКУПОЧНАЯ:</td>
+                <td width="100">{{productmodel.price_zakupka}}</td>
+            </tr>
+            {% endif %}
+            <tr bgcolor="white">
+                <td width="100">ЦЕНА ПРОДАЖИ:</td>
+                <td width="100">{{productmodel.price}}</td>
+            </tr>
+            <tr bgcolor="white">
+                <td width="100">ДАТА ДОБАВЛЕНИЯ:</td>
+                <td width="100">{{productmodel.create_at}}</td>
+            </tr>
+            <tr bgcolor="white">
+                <td width="100">КОММЕНТАРИЙ:</td>
+                <td width="100">{{productmodel.comment}}</td>
+        </table>
+
+        <table cellspacing="2" cellpadding="10" bgcolor="black">
+            <tr bgcolor="white">
+                <td width="622">НАЛИЧИЕ ТОВАРА:</td>
+            </tr>
+        </table>
+
+        <table cellspacing="2" cellpadding="10" bgcolor="black">
+            <tr bgcolor="white">
+                <td width="300">МОСКВА: ШТ.</td>
+                <td width="300">{{productmodel.mos_count}}</td>
+            </tr>
+            <tr bgcolor="white">
+                <td width="100">САНКТ-ПЕТЕРБУРГ: ШТ.</td>
+                <td width="100">{{productmodel.spd_count}}</td>
+            </tr>
+        </table>
+
+                <img src="{{productmodel.file.url}}" width="400" height="330">
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>СТАТИСТИКА ПРОДАЖ</title>
+</head>
+<body>
+
+
+
+{% for n in object_list %}
+    {% if n.num_sale == 0 %}
+<ul>
+    <li>
+    ТОВАР НЕ НАЙДЕН
+ </ul>
+    {% else %}
+        <ul>
+            <li>
+                ТОВАР: {{n}}
+            <li>
+                ИДЕНТИФИКАТОР: {{n.id}}
+            <li>
+                ПРОДАНО: {{n.num_sale}}
+        </ul>
+    {% endif %}
+    {% endfor %}
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">ПОСМОТРЕТЬ СТАТИСТИКУ</button>
+</form>
+</body>
+</html>

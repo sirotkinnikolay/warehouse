@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ДОБАВИТЬ КАТЕГОРИЮ ТОВАРА</title>
+</head>
+<body>
+   <br>
+    <br>
+      <br>
+    <br>
+
+<form ALIGN='center' method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table ALIGN='center'>
+            {{ form.as_table }}
+        </table>
+    <br>
+    <br>
+    <button type="submit" >ДОБАВИТЬ</button>
+</form>
+</body>
+</html>

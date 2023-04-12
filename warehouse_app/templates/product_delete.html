@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>УДАЛЕНИЕ ТОВАРА</title>
+</head>
+
+<body>
+<font size='5' color='red'> <b>ВЫ ТОЧНО ХОТИТЕ УДАЛИТЬ:  {{productmodel.products}}</b></font>
+<br>
+<br>
+    <form style="height:20px;width:100px" action="" method="post">
+        {% csrf_token %}
+      <input type="submit" value="УДАЛИТЬ" />
+    </form>
+
+</body>
+</html>
