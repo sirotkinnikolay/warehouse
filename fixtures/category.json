@@ -1,0 +1,1 @@
+[{"model": "warehouse_app.categorymodel", "pk": 1, "fields": {"group": "кофе"}}, {"model": "warehouse_app.categorymodel", "pk": 2, "fields": {"group": "чай"}}]
